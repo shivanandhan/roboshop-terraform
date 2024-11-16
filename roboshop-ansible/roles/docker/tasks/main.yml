@@ -1,0 +1,5 @@
+- name: Create app container
+  ansible.builtin.include_role:
+    name: "{{ app_name }}"
+    tasks_from: docker
+

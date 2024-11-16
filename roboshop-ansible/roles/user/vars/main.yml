@@ -1,0 +1,5 @@
+component: user
+app_path: /app
+
+secrets: "{{ lookup('hashi_vault', 'secret=roboshop-{{env}}/data/user token={{vault_token}} url=https://vault-internal.rdevopsb80.online:8200 validate_certs=false')}}"
+
