@@ -36,6 +36,7 @@ resource "aws_instance" "instance" {
         user     = "ec2-user"
         password = "DevOps321"
         host     = self.private_ip
+      }
       inline = [
         "sudo labauto ansible",
         "ansible-pull -i localhost, -U https://github.com/shivanandhan/roboshop-terraform/tree/main/roboshop-ansible main.yml -e env=${var.env} -e app_name=${var.component_name}"
@@ -43,6 +44,6 @@ resource "aws_instance" "instance" {
     }
   }
 
-}
+
 
 
