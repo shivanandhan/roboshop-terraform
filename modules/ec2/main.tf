@@ -21,6 +21,7 @@ resource "aws_instance" "instance" {
   tags = {
     Name = "${var.component_name}-${var.env}"
   }
+}
 
   //using self beacuse we are provisioning in the same resource
 # provisioner "local-exec" {
@@ -30,12 +31,13 @@ resource "aws_instance" "instance" {
 #    EOL
 #   }
 
+resource "null_resource" "ansible-pull"{
   provisioner "remote-exec" {
       connection {
         type     = "ssh"
         user     = "ec2-user"
         password = "DevOps321"
-        host     = self.private_ip
+        host     = aws_instance.instance.private_ip
       }
       inline = [
         "sudo labauto ansible",
