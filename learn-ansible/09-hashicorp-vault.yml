@@ -1,0 +1,20 @@
+ - name: Get vault credentials
+   hosts: localhost
+   connection: local
+   tasks:
+     - name: print password
+       ansible.builtin.debug:
+         msg: "{{ lookup('hashi_vault', 'test/my_credentials:password token={{vault_token}} url=http://172.31.32.24:8200 validate_certs=False')}}"
+
+
+
+
+
+
+
+#- name: retrive secrets
+#  hosts: localhost
+#  tasks:
+#    - debug:
+#        msg: "{{ lookup('hashi_vault', 'secret=kv/data/test:MYPASS token={{vault_token}} url=https://vault-internal.rdevopsb80.online:8200 validate_certs=false')}}"
+#
