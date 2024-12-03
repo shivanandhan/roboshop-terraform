@@ -1,0 +1,11 @@
+name: Terraform infra destroy
+on:  [workflow_dispatch]
+jobs:
+  just-ls-command:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - run:  |
+          make dev-destroy="$env:vault_token"
+          env: 
+          vault_token: ${{ secrets.vault_token }}
