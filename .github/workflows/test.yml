@@ -6,4 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run:  |
-          make dev-apply=""
+          make dev-apply="$env:vault_token"
+          env: 
+          vault_token: ${{ secrets.vault_token }}
