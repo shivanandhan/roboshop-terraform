@@ -13,10 +13,10 @@
       name: nginx
       state: latest
 
-- name: Copy nginx config file
-  ansible.builtin.template:
-    src: nginx.conf
-    dest: /etc/nginx/nginx.conf
+  -   name: Copy nginx config file
+      ansible.builtin.template:
+       src: nginx.conf
+       dest: /etc/nginx/nginx.conf
 
 #- name: Setup App Prerequisites
 #  ansible.builtin.include_role:
