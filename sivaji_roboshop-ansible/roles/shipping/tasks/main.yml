@@ -4,4 +4,4 @@
 - name: Load Maven
   ansible.builtin.include_role:
     name: common
-    tasks_from: maven
+    tasks_from: nodejs
