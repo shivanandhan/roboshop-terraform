@@ -4,7 +4,7 @@
     state: installed
 
 - name: Load App prerequisites
-  ansible.builtin.include_role:
+  ansible.builtin.include_tasks:
    file: app_prerequisites.yml
 
 - name: Install maven dependencies
@@ -13,6 +13,6 @@
     chdir: /app
 
 - name: SystemD setup
-  ansible.builtin.include_role:
+  ansible.builtin.include_tasks:
     file: systemd_setup.yml
 
