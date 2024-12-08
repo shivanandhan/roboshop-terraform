@@ -5,3 +5,20 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: maven
+
+- name: Install mysql client
+  ansible.builtin.dnf:
+    name: mysql
+    state: installed
+
+- name: Load sql file
+  ansible.builtin.shell: mysql -h mysql-{{ env }}.kndevops72.online -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
+  loop:
+    - schema
+    - app-user
+    - master-data
+
+- name: Restart shipping
+  ansible.builtin.systemd_service:
+    name: shipping
+    state: restarted
