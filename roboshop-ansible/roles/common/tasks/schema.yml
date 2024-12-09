@@ -3,8 +3,8 @@
   block:
     - name: COpy MongoDB repo file
       ansible.builtin.template:
-        src: mongo.repo
-        dest: /etc/yum.repos.d/mongo.repo
+        src: mongodb.repo
+        dest: /etc/yum.repos.d/mongodb.repo
 
     - name: Install MongoDB Client
       ansible.builtin.dnf:
