@@ -9,10 +9,9 @@
     name: nodejs
     state: installed
 
-#- name: Load App Prerequisites
-#  ansible.builtin.include_role:
-#    name: common
-#    tasks_from: app-prerequisites
+- name: Load App Prerequisites
+  ansible.builtin.include_tasks:
+    file: app-prerequisites
 #
 #- name:  install NodeJS Dependencies
 #  ansible.builtin.shell: npm install # there could be a npm module, However we are still using shell, Since these steps will get removed when CI comes in.
