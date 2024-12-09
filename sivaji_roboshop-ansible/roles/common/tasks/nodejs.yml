@@ -12,11 +12,10 @@
 - name: Load App Prerequisites
   ansible.builtin.include_tasks:
     file: app_prerequisites.yml
-#
-#- name:  install NodeJS Dependencies
-#  ansible.builtin.shell: npm install # there could be a npm module, However we are still using shell, Since these steps will get removed when CI comes in.
-#  args:
-#    chdir: "{{ app_path }}"
+
+- name:  install NodeJS Dependencies
+  community.general.npm:
+    path: /app
 #
 #- name: Load Schema
 #  ansible.builtin.include_role:
@@ -24,8 +23,7 @@
 #    tasks_from: schema
 #  when: schema_setup is defined
 #
-#- name: SystemD setup
-#  ansible.builtin.include_role:
-#    name: common
-#    tasks_from: systemd_setup
+- name: SystemD setup
+  ansible.builtin.include_role:
+    tasks_from: systemd_setup.yml
 
