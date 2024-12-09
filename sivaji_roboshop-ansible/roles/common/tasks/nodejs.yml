@@ -11,7 +11,7 @@
 
 - name: Load App Prerequisites
   ansible.builtin.include_tasks:
-    file: app_prerequisites
+    file: app_prerequisites.yml
 #
 #- name:  install NodeJS Dependencies
 #  ansible.builtin.shell: npm install # there could be a npm module, However we are still using shell, Since these steps will get removed when CI comes in.
