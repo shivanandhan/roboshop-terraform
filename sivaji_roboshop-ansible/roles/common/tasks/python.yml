@@ -9,7 +9,7 @@
 
 - name: Load App Prerequisites
   ansible.builtin.include_tasks:
-   file: app-prerequisites.yml
+   file: app_prerequisites.yml
 
 - name: Install python Dependencies
   ansible.builtin.shell: pip3 install -r requirements.txt
