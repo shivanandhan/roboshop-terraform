@@ -7,7 +7,7 @@
 - name: Install Nginx
   ansible.builtin.dnf:
     name: nginx
-    state: present
+    state: installed
 
 - name: Copy nginx config file
   ansible.builtin.template:
@@ -30,9 +30,9 @@
     dest: /usr/share/nginx/html
     remote_src: yes
 
-#- name: Start Nginx
-#  ansible.builtin.systemd_service:
-#    name: nginx
-#    state: restarted
+- name: Start Nginx
+  ansible.builtin.systemd_service:
+    name: nginx
+    state: restarted
 
 
