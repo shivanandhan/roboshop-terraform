@@ -3,10 +3,10 @@
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
-- name:  Install MongoDB
+- name:  Install MongoDB server
   ansible.builtin.dnf:
     name: mongodb-org
-    state: latest
+    state: installed
 
 - name:  Update MongoDB config file
   ansible.builtin.replace:
