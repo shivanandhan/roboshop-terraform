@@ -16,14 +16,16 @@
 - name:  install NodeJS Dependencies
   community.general.npm:
     path: /app
-#
+
+- name: SystemD setup
+  ansible.builtin.include_role:
+  tasks_from: systemd_setup.yml
+##
 #- name: Load Schema
 #  ansible.builtin.include_role:
 #    name: common
 #    tasks_from: schema
 #  when: schema_setup is defined
-#
-- name: SystemD setup
-  ansible.builtin.include_role:
-    tasks_from: systemd_setup.yml
+
+
 

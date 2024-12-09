@@ -6,20 +6,20 @@
     name: common
     tasks_from: nodejs
 
-#- name:  Copy MongoDB repo file
-#  ansible.builtin.copy:
-#    src: mongo.repo
-#    dest: /etc/yum.repos.d/mongo.repo
-#
-#- name:  Install MongoDB
-#  ansible.builtin.dnf:
-#    name: mongodb-mongosh
-#    state: latest
-#
-#- name: Load Master data
-#  ansible.builtin.shell: mongosh --host MONGODB-{{ env }}-kndevops72.online </app/db/master-data.js
-#
-#- name: Restart Catalogue Service
-#  ansible.builtin.systemd_service:
-#    name: catalogue
-#    state: restarted
+- name:  Copy MongoDB repo file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name:  Install MongoDB
+  ansible.builtin.dnf:
+    name: mongodb-mongosh
+    state: installed
+
+- name: Load Master data
+  ansible.builtin.shell: mongosh --host mongodb-{{ env }}-kndevops72.online </app/db/master-data.js
+
+- name: Restart Catalogue Service
+  ansible.builtin.systemd_service:
+    name: catalogue
+    state: restarted
