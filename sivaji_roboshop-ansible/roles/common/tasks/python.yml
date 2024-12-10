@@ -18,5 +18,4 @@
 
 - name: SystemD setup
   ansible.builtin.include_tasks:
-    name: common
     file: systemd_setup.yml
