@@ -14,8 +14,9 @@
     file: app_prerequisites.yml
 
 - name:  install NodeJS Dependencies
-  community.general.npm:
-    path: /app
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app
 
 - name: SystemD setup
   ansible.builtin.include_tasks:
