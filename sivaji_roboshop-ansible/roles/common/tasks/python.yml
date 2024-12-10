@@ -2,10 +2,10 @@
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: installed
-    loop:
+  loop:
       - python3
-      - python3-devel
       - gcc
+      - python3-devel
 
 - name: Load App Prerequisites
   ansible.builtin.include_tasks:
