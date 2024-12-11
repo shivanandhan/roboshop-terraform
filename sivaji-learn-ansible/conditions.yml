@@ -5,4 +5,4 @@
      - name: Print os redhat
        ansible.builtin.debug:
          msg: Redhat
-         when: os == "redhat"
+       when: os == "redhat"
