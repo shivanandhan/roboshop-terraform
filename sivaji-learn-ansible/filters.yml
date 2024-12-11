@@ -4,6 +4,8 @@
   vars:
     x: 1,2,3
   tasks:
-    - name: print the first value of x
+    - name: print the second value of x
       ansible.builtin.debug:
-        msg: "{{x | split(',') | first }}"
+        msg: "{{ split[1] }}"
+      vars:
+        split: "{{x | split(',') }}"
