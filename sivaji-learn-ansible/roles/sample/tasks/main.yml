@@ -1,7 +1,10 @@
-- name: Demo Roles
-  hosts: local host
-  connection: local
-  roles:
-    - sample
+- name: print hello world
+  ansible.builtin.debug:
+    msg: Hello world
+
+- name: print URL
+  ansible.builtin.debug:
+    msg: URL - {{ URL }}
+
 
 
