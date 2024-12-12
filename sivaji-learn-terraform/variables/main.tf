@@ -1,16 +1,16 @@
-variable "url"{
+variable "url" {
   default = "john"
 }
 
 #Accessing variables
 
-output "URL"{
+output "URL" {
   value = var.url
 }
 
 # to print the variable in the combination of string
 
-output "URL1"{
+output "URL1" {
   value = "Url is ${var.url}"
 }
 
@@ -22,7 +22,7 @@ variable "list"{
   ]
 }
 
-variable "maps"{
+variable "maps" {
   default = {
     aws ={
       trainer = "abc"
@@ -41,8 +41,8 @@ output "list1"
   value = var.list[1] # Prints the first index of List as index starts from 0
 }
 
-output "map1"{
+output "map1" {
   value = var.maps["devops"]["duration"]
 }
 
-variable "empty"{}
+variable "empty" {}
