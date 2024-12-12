@@ -45,7 +45,7 @@ output "map1" {
 }
 
 # when we declare empty variable in terraform it asks for value in console
-variable "empty" {}
+variable "trainer_name" {}
 output "printvalue" {
-  value = var.empty
+  value = var.trainer_name
 }
