@@ -1,8 +1,16 @@
 variable "instances"{
+
   default = [
     "frontend",
      "mongodb",
-     "catalogue"
+     "catalogue",
+      "redis",
+      "mysql",
+      "cart",
+      "user",
+      "rabbitmq",
+       "shipping",
+      "payment"
   ]
 }
 
