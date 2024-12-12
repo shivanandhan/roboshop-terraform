@@ -44,4 +44,8 @@ output "map1" {
   value = var.maps["devops"]["duration"]
 }
 
+# when we declare empty variable in terraform it asks for value in console
 variable "empty" {}
+output "printvalue" {
+  value = var.empty
+}
