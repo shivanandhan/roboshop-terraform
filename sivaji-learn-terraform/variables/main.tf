@@ -36,8 +36,7 @@ variable "maps" {
 }
 
 # Accessing List and Maps
-output "list1"
-{
+output "list1" {
   value = var.list[1] # Prints the first index of List as index starts from 0
 }
 
