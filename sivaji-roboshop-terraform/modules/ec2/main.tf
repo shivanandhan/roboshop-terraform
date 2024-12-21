@@ -1,6 +1,3 @@
-variable "app_port" {
-  default = ""
-}
 resource "aws_security_group" "sg" {
   name        = "${var.component_name}-${var.env}-sg"
   description = "Inbound allow for ${var.component_name}"
