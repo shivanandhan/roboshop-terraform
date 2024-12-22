@@ -31,18 +31,21 @@ resource "aws_instance" "instance" {
   tags = {
     Name = "${var.component_name}-${var.env}"
   }
-
-  provisioner "remote-exec" {
-    connection {
-      type     = "ssh"
-      user     = "ec2-user"
-      password = "DevOps321"
-      host     = self.private_ip
-    }
-    inline = [
-      "sudo labauto ansible",
-      "ansible-pull -i localhost -U https://github.com/shivanandhan/roboshop-terraform/sivaji_roboshop-ansible roboshop.yml -e env=${var.env} -e app_name=${var.component_name}"
-    ]
-  }
 }
+
+  resource null_resource "ansible-play" {
+    provisioner "remote-exec" {
+      connection {
+        type     = "ssh"
+        user     = "ec2-user"
+        password = "DevOps321"
+        host     = aws_instance.instance.private_ip
+      }
+      inline = [
+        "sudo labauto ansible",
+        "ansible-pull -i localhost, -U https://github.com/shivanandhan/roboshop-terraform/tree/main/sivaji_roboshop-ansible roboshop.yml -e env=${var.env} -e app_name=${var.component_name}"
+      ]
+    }
+  }
+
 
